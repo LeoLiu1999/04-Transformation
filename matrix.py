@@ -2,33 +2,33 @@ import math
 
 def make_translate( x, y, z ):
     return [[1,0,0,x],
-                [0,1,0,y],
-                [0,0,1,z],
-                [0,0,0,1]]
+            [0,1,0,y],
+            [0,0,1,z],
+            [0,0,0,1]]
     
 def make_scale( x, y, z ):
     return [[x,0,0,0],
-                [0,y,0,0],
-                [0,0,z,0],
-                [0,0,0,1]]
+            [0,y,0,0],
+            [0,0,z,0],
+            [0,0,0,1]]
 
 def make_rotZ( theta ):    
     return [[cos(theta), -1 * sin(theta), 0, 0],
-                [sin(theta), cos(theta), 0, 0],
-                [0,0,0,0],
-                [0,0,0,0]]
+            [sin(theta), cos(theta), 0, 0],
+            [0,0,0,0],
+            [0,0,0,0]]
 
 def make_rotY( theta ):
     return [[cos(theta),0,sin(theta),0],
-                [0,1,0,0],
-                [1- * sin(theta),0,cos(theta),0],
-                [0,0,0,1]]
+            [0,1,0,0],
+            [1- * sin(theta),0,cos(theta),0],
+            [0,0,0,1]]
 
 def make_rotX( theta ):
     return [[1,0,0,0],
-                [0,cos(theta),-1 * sin(theta),0],
-                [0,sin(theta),cos(theta),0],
-                [0,0,0,1]]
+            [0,cos(theta),-1 * sin(theta),0],
+            [0,sin(theta),cos(theta),0],
+            [0,0,0,1]]
 
 def print_matrix( matrix ):
     s = ''
@@ -38,7 +38,7 @@ def print_matrix( matrix ):
             s+= '\n'
             print s
 
-            def ident( matrix ):
+def ident( matrix ):
     for r in range( len( matrix[0] ) ):
         for c in range( len(matrix) ):
             if r == c:
@@ -46,11 +46,6 @@ def print_matrix( matrix ):
             else:
                 matrix[c][r] = 0
 
-def scalar_mult( matrix, s ):
-    for r in range( len( matrix[0] ) ):
-        for c in range( len(matrix) ):
-            matrix[c][r]*= s
-            
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
 
